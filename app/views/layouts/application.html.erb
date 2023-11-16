@@ -8,9 +8,28 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <script src="https://kit.fontawesome.com/d686b632b3.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
+    <div class="navbar">
+
+      <%= link_to root_path do %>
+        <%= image_tag "popcorn.png", alt: "Popcorn image" %>
+      <% end %>
+
+      <div class="navbar-actions">
+        <%= link_to lists_path do %>
+          <i class="fa-solid fa-list"></i>
+        <% end %>
+        <%= link_to new_list_path do %>
+          <i class="fa-solid fa-plus"></i>
+        <% end %>
+      </div>
+
+
+    </div>
+
     <%= yield %>
   </body>
 </html>
