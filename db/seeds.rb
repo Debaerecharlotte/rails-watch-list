@@ -10,36 +10,23 @@
 require 'open-uri'
 require 'json'
 
-# Movie.destroy_all
+Movie.destroy_all
 
 url = 'https://tmdb.lewagon.com/movie/top_rated?language=en-US'
 
-
-
-URI.open(url) do |f|
-  f.each_line do |line|
-    movie = JSON.parse(line)
-    movie['results'].each do |m|
-      title = m['title']
-      overview = m['overview']
-      poster_url = m['poster_path']
-      rating = m['vote_average']
-      Movie.create!(title: title, overview: overview, poster_url: poster_url, rating: rating)
-    end
-  end
+response = URI.open(url).read
+data = JSON.parse(response)
+movies_arr = data['results']
+movies_arr.each do |movie|
+  title = movie['title']
+  overview = movie['overview']
+  poster_url = movie['poster_path']
+  rating = movie['vote_average']
+  Movie.create!(title: title, overview: overview, poster_url: poster_url, rating: rating)
 end
 
-# Instead of the above
-# response = URI.open(url).read
-# data = JSON.parse(response)
-# movies_arr = data['results']
-# -> Then iterate over movies_arr
-
+List.destroy_all
 
 List.create!(name: 'Classics')
 List.create!(name: 'Fantasy')
 List.create!(name: 'History')
-
-Bookmark.create!(comment: 'This is a classic!', movie_id: 201, list_id: 1)
-Bookmark.create!(comment: 'This is another classic!', movie_id: 202, list_id: 1)
-Bookmark.create!(comment: 'This is a great movie!', movie_id: 203, list_id: 1)
