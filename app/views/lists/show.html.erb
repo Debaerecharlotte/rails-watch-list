@@ -1,5 +1,31 @@
 <div class="container mt-3">
   <div class="page-main-header">
-    <h3><%= @list.name %></h3>
+    <div class="list-header">
+      <h3><%= @list.name %></h3>
+      <%= link_to new_list_bookmark_path(@list) do %>
+        <%# <i class="fa-regular fa-bookmark"></i> %>
+        <i class="fa-solid fa-bookmark"></i>
+      <% end %>
+    </div>
   </div>
+
+  <div class="bookmarks-list">
+    <% @bookmarks.each do |bookmark| %>
+      <div class="bookmark-item">
+        <%= image_tag bookmark.movie.poster_url %>
+        <div class="bookmark-item-info-top">
+          <p><%= bookmark.movie.title %></p>
+          <p><%= bookmark.movie.rating %></p>
+        </div>
+        <p><%= bookmark.movie.overview %></p>
+        <div class="bookmark-item-info-bottom">
+          <p><%= bookmark.comment %></p>
+          <%= link_to bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
 </div>

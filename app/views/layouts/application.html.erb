@@ -13,11 +13,9 @@
 
   <body>
     <div class="navbar">
-
       <%= link_to root_path do %>
         <%= image_tag "popcorn.png", alt: "Popcorn image" %>
       <% end %>
-
       <div class="navbar-actions">
         <%= link_to lists_path do %>
           <i class="fa-solid fa-list"></i>
@@ -26,10 +24,9 @@
           <i class="fa-solid fa-plus"></i>
         <% end %>
       </div>
-
-
     </div>
-
-    <%= yield %>
+    <div class="mb-5">
+      <%= yield %>
+    </div>
   </body>
 </html>

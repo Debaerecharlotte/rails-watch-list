@@ -10,9 +10,11 @@
 require 'open-uri'
 require 'json'
 
-Movie.destroy_all
+# Movie.destroy_all
 
 url = 'https://tmdb.lewagon.com/movie/top_rated?language=en-US'
+
+
 
 URI.open(url) do |f|
   f.each_line do |line|
@@ -27,6 +29,17 @@ URI.open(url) do |f|
   end
 end
 
+# Instead of the above
+# response = URI.open(url).read
+# data = JSON.parse(response)
+# movies_arr = data['results']
+# -> Then iterate over movies_arr
+
+
 List.create!(name: 'Classics')
 List.create!(name: 'Fantasy')
 List.create!(name: 'History')
+
+Bookmark.create!(comment: 'This is a classic!', movie_id: 201, list_id: 1)
+Bookmark.create!(comment: 'This is another classic!', movie_id: 202, list_id: 1)
+Bookmark.create!(comment: 'This is a great movie!', movie_id: 203, list_id: 1)

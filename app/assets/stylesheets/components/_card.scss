@@ -21,8 +21,41 @@
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
+}
+
+.bookmarks-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.bookmark-item {
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bookmark-item a {
+  text-decoration: none;
+  color: #C51605;
+  font-weight: bold;
+}
+
+.bookmark-item-info-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bookmark-item-info-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding-bottom: 0px;
+  height: 30px;
 }
 
 // Smallest device

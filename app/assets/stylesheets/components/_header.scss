@@ -3,3 +3,14 @@
   font-weight: 900;
   padding: 8px;
 }
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-header a {
+  color: #C51605;
+  font-size: 22px;
+}
