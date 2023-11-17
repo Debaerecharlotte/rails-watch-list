@@ -11,7 +11,7 @@
   <div class="bookmarks-list">
     <% @bookmarks.each do |bookmark| %>
       <div class="bookmark-item">
-        <%= image_tag bookmark.movie.poster_url %>
+        <%= image_tag bookmark.movie.poster_url, width: '100' %>
         <div class="bookmark-item-info-top">
           <p><%= bookmark.movie.title %></p>
           <p><%= bookmark.movie.rating %></p>
