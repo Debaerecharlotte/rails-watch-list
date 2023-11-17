@@ -10,6 +10,10 @@
 require 'open-uri'
 require 'json'
 
+List.destroy_all
+
+Bookmark.destroy_all
+
 Movie.destroy_all
 
 url = 'https://tmdb.lewagon.com/movie/top_rated?language=en-US'
@@ -24,9 +28,3 @@ movies_arr.each do |movie|
   rating = movie['vote_average']
   Movie.create!(title: title, overview: overview, poster_url: poster_url, rating: rating)
 end
-
-List.destroy_all
-
-List.create!(name: 'Classics')
-List.create!(name: 'Fantasy')
-List.create!(name: 'History')
