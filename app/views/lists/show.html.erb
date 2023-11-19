@@ -1,15 +1,13 @@
-<div class="container mt-3">
-  <div class="page-main-header">
-    <div class="list-header">
-      <h3><%= @list.name %></h3>
-      <%= link_to new_list_bookmark_path(@list) do %>
-        <i class="fa-solid fa-bookmark"></i>
-      <% end %>
-    </div>
+<div class="banner-list" style="background-image: url('<%= cl_image_path @list.photo.key, crop: :fill %>')">
+  <div class="list-header container">
+    <h3><%= @list.name %></h3>
+    <%= link_to new_list_bookmark_path(@list) do %>
+      <i class="fa-solid fa-bookmark"></i>
+    <% end %>
   </div>
+</div>
 
-  <h3>$$ Add Image Here $$</h3>
-
+<div class="container mt-4">
   <div class="bookmarks-list">
     <% @bookmarks.each do |bookmark| %>
       <div class="bookmark-item">
@@ -20,7 +18,10 @@
         </div>
         <p><%= bookmark.movie.overview %></p>
         <div class="bookmark-item-info-bottom">
-          <p><%= bookmark.comment %></p>
+          <div class="bookmark-comment">
+            <i class="fa-regular fa-comments me-2"></i>
+            <%= bookmark.comment %>
+          </div>
           <%= link_to bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
             <i class="fa-solid fa-trash"></i>
           <% end %>
@@ -29,4 +30,8 @@
     <% end %>
   </div>
 
+</div>
+
+<div class="container mt-4">
+  <h3>Reviews will go here</h3>
 </div>

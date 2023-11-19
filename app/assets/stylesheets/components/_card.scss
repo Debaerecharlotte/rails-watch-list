@@ -36,6 +36,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 16px;
   // position: relative;
+  border-radius: 8px;
 }
 
 .bookmark-item a {
@@ -57,6 +58,15 @@
   // position: absolute;
   // bottom: 0;
   margin: 8px 0;
+}
+
+.bookmark-comment {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 6px;;
+  border-radius: 8px;
+  background-color: rgba(208, 212, 202, 0.4);
 }
 
 // Smallest device

@@ -8,9 +8,30 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  margin: 0 auto;
+  top: 0;
+  width: 50%;
+  text-shadow: 2px 2px 2px rgba(169, 169, 169, 0.7);
+  border-radius: 8px;
+  background-color: rgba(208, 212, 202, 0.7);
 }
 
 .list-header a {
-  color: #C51605;
   font-size: 22px;
+  color: #C51605;
+  margin: 0;
+
+}
+
+.list-header h3 {
+  font-weight: 800;
+  color: #C51605;
+  margin: 0;
+}
+
+.banner-list {
+  height: 250px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
