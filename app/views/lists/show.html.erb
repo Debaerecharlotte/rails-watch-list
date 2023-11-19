@@ -33,5 +33,25 @@
 </div>
 
 <div class="container mt-4">
-  <h3>Reviews will go here</h3>
+  <div class="reviews-header">
+    <h3>List Reviews</h3>
+    <%= link_to 'Add a Review!', new_list_review_path(@list), class: 'btn-add-review' %>
+  </div>
+  <div class="reviews-empty">
+    <% if @reviews.empty? %>
+      No reviews yet. <%= link_to 'Add one?', new_list_review_path(@list), class: 'btn-add-review' %>
+    <% else %>
+      <div class="reviews-list">
+        <% @reviews.each do |review| %>
+          <div class="list-item">
+            <div class="review-header">
+              <div ids="review-title"><%= review.title %></div>
+              <div id="review-rating"><%= review.rating %>/5</div>
+            </div>
+            <%= review.content %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>

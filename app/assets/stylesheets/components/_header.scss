@@ -21,13 +21,27 @@
   font-size: 22px;
   color: #C51605;
   margin: 0;
-
 }
 
 .list-header h3 {
   font-weight: 800;
   color: #C51605;
   margin: 0;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.reviews-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reviews-header a {
+  text-decoration: none;
 }
 
 .banner-list {

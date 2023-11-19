@@ -1,0 +1,14 @@
+<div class="container mt-3">
+  <div class="page-main-header">
+    <h3>Post a review</h3>
+  </div>
+
+  <div class="form-new-list">
+    <%= simple_form_for([@list, @review]) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :content %>
+      <%= f.input :rating %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
